@@ -1,0 +1,125 @@
+* {
+    --main-brigth: white;
+    --main-dark: #8c8f8d;
+    --main-text-color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+}
+
+.text_block {
+  width: 90%;
+}
+
+.title {
+    margin: 0;
+    padding: 10px;
+}
+
+.brigth {
+    color: var(--main-text-color);
+    background-color: var(--main-brigth);
+}
+
+.dark {
+  color: var(--main-brigth);
+  background-color: var(--main-dark);
+}
+
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+
+    display: flex;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch_input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--main-dark);
+    border-radius: 34px;
+    transition: 400ms;
+  }
+  
+  .slider:before {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--main-brigth);
+    border-radius: 50%;
+    transition: 400ms;
+  }
+
+  .brigth > .switch:before {
+      content: "";
+      position: absolute;
+      left: -40px;
+      top: 4px;
+      
+      display: block;
+      background-image: url("./images/sun.svg");
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      
+      width: 26px;
+      height: 26px;
+      
+  }
+
+  .dark > .switch:after {
+    content: "";
+    position: absolute;
+    left: 74px;
+    top: 4px;
+    
+    display: block;
+    background-image: url("./images/moon.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    
+    width: 26px;
+    height: 26px;
+    
+}
+  
+  input:checked + .slider {
+    background-color: var(--main-brigth);
+  }
+
+  input:checked + .slider:before {
+    background-color: var(--main-dark);
+    transform: translateX(26px);
+  }
+  
